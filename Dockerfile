@@ -3,7 +3,7 @@ FROM ubuntu:xenial
 RUN apt-get -y update && \
     apt-get -y upgrade && \
     # python-setuptools is required for linuxbrew python installation
-    apt-get install -y build-essential && \
+    apt-get install -y build-essential python-setuptools && \
     apt-get install -y curl g++ gawk git m4 make patch ruby tcl && \
     # this is only a wrapper for linuxbrew and does not download the whole thing
     apt-get install -y linuxbrew-wrapper && \
@@ -37,7 +37,7 @@ ENV PATH="/home/ubuntu/.linuxbrew/bin:${PATH}" \
 RUN brew doctor
 
 # finally install opencv3
-RUN brew install homebrew/science/opencv3 --without-python
+RUN brew install homebrew/science/opencv3
 
 # setup opencv envs and linuxbrew opencv3 package-config PATH
 ENV PKG_CONFIG_PATH="/home/ubuntu/.linuxbrew/opt/opencv3/lib/pkgconfig:$PKG_CONFIG_PATH" \
