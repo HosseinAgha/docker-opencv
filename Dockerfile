@@ -15,9 +15,12 @@ RUN apt-get -y update && \
 RUN locale-gen en_US.UTF-8  
 
 # It's safe to use linuxbrew in a non-root environment
-RUN useradd -m -s /bin/bash ubuntu        # create a user called ubunutu 
-RUN echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers  # make it sudoer
-USER ubuntu # switch to ubuntu user 
+# create a user called ubunutu
+RUN useradd -m -s /bin/bash ubuntu         
+# make it sudoer
+RUN echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers  
+# switch to ubuntu user 
+USER ubuntu 
 
 # sets system language variables in a single layer (for linuxbrew again!)
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8" 
