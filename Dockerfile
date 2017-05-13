@@ -1,12 +1,15 @@
 FROM ubuntu:xenial
 
-RUN apt-get -y update && apt-get -y upgrade && \
-    apt-get install -y build-essential python-setuptools && \ # python-setuptools is required for linuxbrew python installation
+RUN apt-get -y update && \
+    apt-get -y upgrade && \
+    # python-setuptools is required for linuxbrew python installation
+    apt-get install -y build-essential python-setuptools && \
     apt-get install -y curl g++ gawk git m4 make patch ruby tcl && \
-    apt-get -y install linuxbrew-wrapper && \  # this is only a wrapper for linuxbrew and does not download the whole thing
-    apt-get install -y locales; \              # for linuxbrew
-    apt-get clean && \
-    apt-get autoremove
+    # this is only a wrapper for linuxbrew and does not download the whole thing
+    apt-get install -y linuxbrew-wrapper && \
+    # for linuxbrew
+    apt-get install -y locales && \
+    apt clean && apt autoremove
 
 # Set the locale for linuxbrew
 RUN locale-gen en_US.UTF-8  
