@@ -1,2 +1,5 @@
 # docker-opencv
-Dockerfile with a preinstalled opencv3 - based on ubuntu:xenial
+  
+1. The base image is _ubunut:xenial_  
+2. OpenCV3 is compiled and installed using its _`linuxbrew`_ formula   
+3. All necessary environment variables like PKG_CONFIG_PATH, etc. are preconfigured so you can easily include opencv in you c++ or nodejs module  
