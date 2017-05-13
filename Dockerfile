@@ -9,7 +9,7 @@ RUN apt-get -y update && \
     apt-get install -y linuxbrew-wrapper && \
     # for linuxbrew
     apt-get install -y locales && \
-    apt clean && apt autoremove
+    apt-get clean && apt-get autoremove
 
 # Set the locale for linuxbrew
 RUN locale-gen en_US.UTF-8  
