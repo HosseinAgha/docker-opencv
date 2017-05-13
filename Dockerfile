@@ -26,7 +26,7 @@ USER ubuntu
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8" 
 
 # install linuxbrew for real! - 2 updates is actually brew's suggestion
-RUN brew update -v || brew update -v
+RUN brew update --verbose || brew update --verbose
 
 # sets brew's PATHs in a single layer 
 ENV PATH="/home/ubuntu/.linuxbrew/bin:${PATH}" \
