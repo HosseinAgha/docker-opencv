@@ -9,7 +9,7 @@ RUN apt-get -y update && \
     apt-get install -y linuxbrew-wrapper && \
     # for linuxbrew
     apt-get install -y locales && \
-    apt-get clean && apt-get autoremove
+    apt-get clean && apt-get autoremove -y
 
 # Set the locale for linuxbrew
 RUN locale-gen en_US.UTF-8  
@@ -48,10 +48,8 @@ ENV PKG_CONFIG_PATH="/home/ubuntu/.linuxbrew/opt/opencv3/lib/pkgconfig:$PKG_CONF
 
 USER root
 
-# install node - update npm
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    apt-get install -y nodejs && \
-    npm i -g npm
+WORKDIR /root/
 
-WORKDIR /home/ubuntu
+
+
 
