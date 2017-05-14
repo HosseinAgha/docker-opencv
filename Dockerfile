@@ -46,6 +46,11 @@ ENV PKG_CONFIG_PATH="/home/ubuntu/.linuxbrew/opt/opencv3/lib/pkgconfig:$PKG_CONF
     # add opencv3 libraries path
     LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/ubuntu/.linuxbrew/opt/opencv3/lib"
 
+USER root
+
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+
+RUN sudo apt-get install -y nodejs
+
 WORKDIR /home/ubuntu
 
-USER root
