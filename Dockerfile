@@ -48,9 +48,10 @@ ENV PKG_CONFIG_PATH="/home/ubuntu/.linuxbrew/opt/opencv3/lib/pkgconfig:$PKG_CONF
 
 USER root
 
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-
-RUN apt-get install -y nodejs
+# install node - update npm
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
+    apt-get install -y nodejs && \
+    npm i -g npm
 
 WORKDIR /home/ubuntu
 
